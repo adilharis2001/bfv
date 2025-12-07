@@ -1,3 +1,6 @@
+import { Header } from "@/components/shared/Header";
+import { Footer } from "@/components/shared/Footer";
+
 export default function MarketingLayout({
   children,
 }: {
@@ -5,9 +8,9 @@ export default function MarketingLayout({
 }) {
   return (
     <div className="flex min-h-screen flex-col">
-      {/* Header will go here in Phase 2 */}
+      <Header />
       <main className="flex-1">{children}</main>
-      {/* Footer will go here in Phase 2 */}
+      <Footer />
     </div>
   );
 }
