@@ -64,11 +64,36 @@ const config: Config = {
   				to: {
   					height: '0'
   				}
+  			},
+  			'scan': {
+  				'0%': {
+  					top: '0%',
+  					opacity: '0'
+  				},
+  				'50%': {
+  					opacity: '1'
+  				},
+  				'100%': {
+  					top: '100%',
+  					opacity: '0'
+  				}
+  			},
+  			'spin-slow': {
+  				'0%': { transform: 'rotate(0deg)' },
+  				'100%': { transform: 'rotate(360deg)' }
+  			},
+  			'spin-reverse': {
+  				'0%': { transform: 'rotate(360deg)' },
+  				'100%': { transform: 'rotate(0deg)' }
   			}
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
-  			'accordion-up': 'accordion-up 0.2s ease-out'
+  			'accordion-up': 'accordion-up 0.2s ease-out',
+  			'scan': 'scan 3s ease-in-out infinite',
+  			'scan-fast': 'scan 1.5s ease-in-out infinite',
+  			'spin-slow': 'spin-slow 8s linear infinite',
+  			'spin-reverse': 'spin-reverse 6s linear infinite'
   		}
   	}
   },

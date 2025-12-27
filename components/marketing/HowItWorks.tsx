@@ -11,21 +11,21 @@ export function HowItWorks() {
       title: "Enter Your Details",
       description:
         "Choose your scan mode (Quick or Detail), then enter your height and weight. This helps improve accuracy of estimates.",
-      image: "/images/how-it-works/step-1-enter-details.jpeg",
+      image: "/images/how-it-works/step-1-enter-details.png",
     },
     {
       number: 2,
       title: "Upload Your Photo(s)",
       description:
         "Take 1 photo for Quick Scan or 2 photos for Detail Scan. Follow our simple pose guides for best results.",
-      image: "/images/how-it-works/step-2-upload-photo.jpeg",
+      image: "/images/how-it-works/step-2-upload-photo.png",
     },
     {
       number: 3,
       title: "Get Instant Results",
       description:
         "View detailed body composition breakdown, personalized recommendations, and track progress over time.",
-      image: "/images/how-it-works/step-3-get-results.jpeg",
+      image: "/images/how-it-works/step-3-get-results.png",
     },
   ];
 
@@ -45,11 +45,6 @@ export function HowItWorks() {
           {steps.map((step, index) => (
             <div key={step.number} className="relative">
               <Card className="overflow-hidden h-full hover:shadow-2xl transition-all duration-300 border-2 border-gray-100 dark:border-slate-800 group">
-                {/* Number Badge */}
-                <div className="absolute top-6 left-6 z-20 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 text-xl font-bold text-white shadow-xl group-hover:scale-110 transition-transform">
-                  {step.number}
-                </div>
-
                 {/* Image */}
                 <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 dark:from-slate-800 dark:to-slate-900">
                   <Image

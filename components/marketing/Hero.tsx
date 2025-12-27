@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Lock, Zap, Target } from "lucide-react";
+import { BodyVisualization } from "./BodyVisualization";
 
 export function Hero() {
   return (
@@ -74,18 +74,21 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Right Column - Hero Image */}
+          {/* Right Column - Interactive Body Visualization */}
           <div className="relative flex items-center justify-center lg:justify-end">
-            <div className="relative h-[450px] w-full max-w-lg md:h-[550px] lg:h-[650px]">
-              <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 to-emerald-600/20 rounded-3xl blur-3xl" />
-              <Image
-                src="/images/hero-body-composition.png"
-                alt="Body composition analysis visualization"
-                fill
-                className="object-contain drop-shadow-2xl relative z-10"
-                priority
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
+            <div className="relative h-[500px] w-full max-w-lg md:h-[600px] lg:h-[700px]">
+              {/* Animated gradient background */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 via-cyan-500/15 to-emerald-600/20 rounded-3xl blur-3xl animate-pulse" />
+              <div className="absolute inset-0 bg-gradient-to-bl from-blue-400/15 to-cyan-600/15 rounded-3xl blur-2xl" />
+
+              {/* Interactive Body Model */}
+              <div className="relative z-10 h-full w-full flex items-center justify-center">
+                <BodyVisualization />
+              </div>
+
+              {/* Decorative elements */}
+              <div className="absolute top-20 -left-8 w-20 h-20 bg-blue-500/10 rounded-full blur-2xl animate-pulse"></div>
+              <div className="absolute bottom-20 -right-8 w-32 h-32 bg-cyan-500/10 rounded-full blur-3xl animate-pulse delay-75"></div>
             </div>
           </div>
         </div>
