@@ -1,13 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Model from "react-body-highlighter";
-
-interface ExerciseData {
-  name: string;
-  muscles: string[];
-  frequency?: number;
-}
+import Model, { type IExerciseData } from "react-body-highlighter";
 
 export function BodyVisualization() {
   const [hoveredMuscle, setHoveredMuscle] = useState<any>(null);
@@ -15,7 +9,7 @@ export function BodyVisualization() {
 
   // Sample body composition data - using exercise format the library expects
   // Frequency: 1 = lean (green), 2 = moderate (yellow), 3 = higher fat (orange/red)
-  const bodyData: ExerciseData[] = [
+  const bodyData: IExerciseData[] = [
     // Higher fat areas (frequency 3)
     { name: "Abdomen", muscles: ["abs"], frequency: 3 },
     { name: "Obliques", muscles: ["obliques"], frequency: 3 },
