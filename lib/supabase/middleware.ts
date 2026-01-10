@@ -37,12 +37,39 @@ export async function updateSession(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  // Protected routes - uncomment when auth is implemented
-  // if (!user && request.nextUrl.pathname.startsWith("/dashboard")) {
-  //   const url = request.nextUrl.clone();
-  //   url.pathname = "/auth/signin";
-  //   return NextResponse.redirect(url);
-  // }
+  // Protected routes - redirect to signin if not authenticated
+  const protectedPaths = ["/dashboard", "/scan", "/settings", "/billing"];
+  const isProtectedPath = protectedPaths.some((path) =>
+    request.nextUrl.pathname.startsWith(path)
+  );
+
+  if (!user && isProtectedPath) {
+    const url = request.nextUrl.clone();
+    url.pathname = "/auth/signin";
+    const redirectResponse = NextResponse.redirect(url);
+    // Copy cookies from supabaseResponse to redirectResponse
+    supabaseResponse.cookies.getAll().forEach((cookie) => {
+      redirectResponse.cookies.set(cookie.name, cookie.value);
+    });
+    return redirectResponse;
+  }
+
+  // Redirect authenticated users away from auth pages
+  const authPaths = ["/auth/signin", "/auth/signup"];
+  const isAuthPath = authPaths.some((path) =>
+    request.nextUrl.pathname.startsWith(path)
+  );
+
+  if (user && isAuthPath) {
+    const url = request.nextUrl.clone();
+    url.pathname = "/dashboard";
+    const redirectResponse = NextResponse.redirect(url);
+    // Copy cookies from supabaseResponse to redirectResponse
+    supabaseResponse.cookies.getAll().forEach((cookie) => {
+      redirectResponse.cookies.set(cookie.name, cookie.value);
+    });
+    return redirectResponse;
+  }
 
   // IMPORTANT: You *must* return the supabaseResponse object as it is. If you're
   // creating a new response object with NextResponse.next() make sure to:

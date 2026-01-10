@@ -15,13 +15,13 @@ export function Hero() {
           <div className="flex flex-col justify-center space-y-10">
             <div className="space-y-6">
               <h1 className="text-5xl font-extrabold tracking-tight sm:text-6xl md:text-7xl lg:text-6xl xl:text-7xl leading-tight">
-                Private Body Composition Analysis in{" "}
+                AI Body Composition Analysis in{" "}
                 <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-emerald-500 bg-clip-text text-transparent">
                   60 Seconds
                 </span>
               </h1>
               <p className="text-lg text-gray-600 dark:text-gray-300 md:text-xl leading-relaxed max-w-2xl">
-                Track your fitness progress with instant body fat estimates. Privacy-first, no
+                Track your fitness progress with AI-powered body composition estimates. No
                 appointments, no equipment needed.
               </p>
             </div>
